@@ -44,3 +44,4 @@ for (let key in person) {
   const value = person[key];
   console.log(key, value);
 }
+//배열은 주로 of, in은 사용X

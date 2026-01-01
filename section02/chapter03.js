@@ -6,7 +6,7 @@ console.log(one, two, three);
 
 /*
 let[one, two, three] = arr;
-console.log(one, two);4
+console.log(one, two);
 두개만 해도 무방 */
 
 /*
