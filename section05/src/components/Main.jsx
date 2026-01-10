@@ -7,6 +7,8 @@ import "./Main.css";
 // 객체의 경우, 그대로 렌더링 불가능(점표시법으로)
 // 3. 모든 태그는 닫혀있어야 한다 <> </>
 // 4. 최상위 태그는 반드시 하나여야만 한다
+// 5. 스타일의 경우, CSS로 X(backgroundColor)
+//CSS파일 따로 생성
 
 function Main() {
   const user = {
