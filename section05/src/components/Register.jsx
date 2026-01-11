@@ -6,6 +6,8 @@ import { useState } from "react";
 // 3. 국적
 // 4. 자기소개
 
+/*
+너무 반복된 작업이 많음(비효율-사용자 입력관리1)
 const Register = () => {
   const [name, setName] = useState("이름");
   const [birth, setBirth] = useState("");
@@ -49,6 +51,89 @@ const Register = () => {
 
       <div>
         <textarea value={bio} onChange={onChangeBio} />
+      </div>
+    </div>
+  );
+};
+*/
+
+//효율적인 사용자 입력 관리2
+
+const Register = () => {
+  const [input, setInput] = useState({
+    name: "",
+    birth: "",
+    country: "",
+    bio: "",
+  });
+
+  const onChange = (e) => {
+    //중요
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
+  };
+  /*
+  const onChangeName = (e) => {
+    setInput({
+      ...input,
+      name: e.target.value,
+    });
+  };
+
+  const onChangeBirth = (e) => {
+    setInput({
+      ...input,
+      birth: e.target.value,
+    });
+  };
+
+  const onChangeCountry = (e) => {
+    setInput({
+      ...input,
+      country: e.target.value,
+    });
+  };
+
+  const onChangeBio = (e) => {
+    setInput({
+      ...input,
+      bio: e.target.value,
+    });
+  };
+  */
+  return (
+    <div>
+      <div>
+        <input
+          name="name"
+          value={input.name}
+          onChange={onChange}
+          placeholder={"이름"}
+        />
+      </div>
+
+      <div>
+        <input
+          name="birth"
+          value={input.birth}
+          onChange={onChange}
+          type="date"
+        />
+      </div>
+
+      <div>
+        <select name="country" value={input.country} onChange={onChange}>
+          <option value=""></option>
+          <option value="kr">한국</option>
+          <option value="us">미국</option>
+          <option value="uk">영국</option>
+        </select>
+      </div>
+
+      <div>
+        <textarea name="bio" value={input.bio} onChange={onChange} />
       </div>
     </div>
   );
